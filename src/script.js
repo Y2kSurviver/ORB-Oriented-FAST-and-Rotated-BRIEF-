@@ -25,15 +25,16 @@ function setup() {
   //   console.log(allKeypoints[i].length);
   // }
 
+  image(img, 0, 0);
   const blurImgs = blurImages(img, levels);
   const resultantImg = subtractImages(blurImgs);
-  const keypoints = FAST(resultantImg)
-  const descriptors = BRIEF(keypoints, 128, resultantImg);
-  image(img, 0, 0);
+  const keypoints = FAST(img)
+  const descriptors = BRIEF(keypoints, 128, img);
+  console.log(descriptors); 
 
   //Drawing the keypoints NOTE: change this to best fitting keypoints
-  // for (let i = 0; i < allKeypoints[0].length; i++) {
-  //   stroke(0, 255, 0);
-  //   point(allKeypoints[0][i][0], allKeypoints[0][i][1]);
-  // }
+  /*for (let i = 0; i < keypoints.length; i++) {
+    stroke(0, 255, 0);
+    point(keypoints[i][0], keypoints[i][1]);
+  }*/
 }
